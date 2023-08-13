@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import kotlin.jvm.Throws
 
 @SpringBootApplication
 @Slf4j
@@ -18,12 +19,14 @@ class BelajarJdbcSpringApplication(
 
 	private val logger: Logger = LoggerFactory.getLogger(this::class.java)
 
+	@Throws(Exception::class)
 	override fun run(vararg args: String?) {
 //		try {
 //			logger.info("get all players: ${playerDao.getAllPlayers()}")
 //		} catch (e: Exception){
 //			e.printStackTrace()
 //		}
+		logger.info("get all players: ${playerDao.getAllPlayers()}")
 	}
 }
 
