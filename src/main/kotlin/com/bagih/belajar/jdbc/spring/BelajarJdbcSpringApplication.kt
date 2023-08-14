@@ -26,7 +26,7 @@ class BelajarJdbcSpringApplication(
 //		} catch (e: Exception){
 //			e.printStackTrace()
 //		}
-		logger.info("get all players: ${playerDao.getAllPlayers()}")
+//		logger.info("get all players: ${playerDao.getAllPlayers()}")
 	}
 }
 
