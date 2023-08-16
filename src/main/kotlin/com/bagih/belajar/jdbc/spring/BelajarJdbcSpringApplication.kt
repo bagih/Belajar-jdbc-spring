@@ -38,6 +38,7 @@ class BelajarJdbcSpringApplication(
 		logger.info("get player by id: ${playerDao.getPlayerById(2)}")
 		playerDao.insertPlayer(Player(id = 4, name = "simbur", nationality = "JAWA", birthDate = Date(System.currentTimeMillis()), titles = 20))
 		logger.info("players after insert: ${playerDao.getAllPlayers()}")
+		playerDao.updatePlayer(Player(3, "jimbur", "jabon", Date(System.currentTimeMillis()), 21))
 	}
 }
 

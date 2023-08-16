@@ -42,4 +42,9 @@ class PlayerDao(
         val sql = "INSERT INTO PLAYER (ID, Name, Nationality, Birth_date, Titles) VALUES (?, ?, ?, ?, ?)"
         jdbcTemplate.update(sql, arrayOf(player.id, player.name, player.nationality, Timestamp(player.birthDate.time), player.titles))
     }
+
+    fun updatePlayer(player: Player){
+        val sql = "UPDATE PLAYER SET Name = ?, Nationality = ?, birth_date = ?, titles = ? WHERE ID = ?"
+        jdbcTemplate.update(sql, arrayOf(player.name, player.nationality, player.birthDate, player.titles, player.id))
+    }
 }
