@@ -47,4 +47,9 @@ class PlayerDao(
         val sql = "UPDATE PLAYER SET Name = ?, Nationality = ?, birth_date = ?, titles = ? WHERE ID = ?"
         jdbcTemplate.update(sql, arrayOf(player.name, player.nationality, player.birthDate, player.titles, player.id))
     }
+
+    fun deletePlayerById(id: Int){
+        val sql = "DELETE FROM PLAYER WHERE ID = ?"
+        jdbcTemplate.update(sql, id)
+    }
 }

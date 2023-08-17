@@ -18,14 +18,14 @@ import kotlin.jvm.Throws
 @SpringBootApplication
 @Slf4j
 class BelajarJdbcSpringApplication(
-	@Autowired
-	val playerDao: PlayerDao
-): CommandLineRunner{
+    @Autowired
+    val playerDao: PlayerDao
+) : CommandLineRunner {
 
-	private val logger: Logger = LoggerFactory.getLogger(this::class.java)
+    private val logger: Logger = LoggerFactory.getLogger(this::class.java)
 
-	@Throws(Exception::class)
-	override fun run(vararg args: String?) {
+    @Throws(Exception::class)
+    override fun run(vararg args: String?) {
 //		try {
 //			logger.info("get all players: ${playerDao.getAllPlayers()}")
 //		} catch (e: Exception){
@@ -34,14 +34,23 @@ class BelajarJdbcSpringApplication(
 //		logger.info("get all players: ${playerDao.getAllPlayers()}")
 //		println("commandline runner is called")
 //		println("get player: ${playerDao.getAllPlayers()}")
-		logger.info("get all players: ${playerDao.getAllPlayers()}")
-		logger.info("get player by id: ${playerDao.getPlayerById(2)}")
-		playerDao.insertPlayer(Player(id = 4, name = "simbur", nationality = "JAWA", birthDate = Date(System.currentTimeMillis()), titles = 20))
-		logger.info("players after insert: ${playerDao.getAllPlayers()}")
-		playerDao.updatePlayer(Player(3, "jimbur", "jabon", Date(System.currentTimeMillis()), 21))
-	}
+        logger.info("get all players: ${playerDao.getAllPlayers()}")
+        logger.info("get player by id: ${playerDao.getPlayerById(2)}")
+        playerDao.insertPlayer(
+            Player(
+                id = 4,
+                name = "simbur",
+                nationality = "JAWA",
+                birthDate = Date(System.currentTimeMillis()),
+                titles = 20
+            )
+        )
+        logger.info("players after insert: ${playerDao.getAllPlayers()}")
+        playerDao.updatePlayer(Player(3, "jimbur", "jabon", Date(System.currentTimeMillis()), 21))
+		playerDao.deletePlayerById(1)
+    }
 }
 
 fun main(args: Array<String>) {
-	runApplication<BelajarJdbcSpringApplication>(*args)
+    runApplication<BelajarJdbcSpringApplication>(*args)
 }
