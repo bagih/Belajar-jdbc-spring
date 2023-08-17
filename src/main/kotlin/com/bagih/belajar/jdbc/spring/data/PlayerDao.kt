@@ -52,4 +52,10 @@ class PlayerDao(
         val sql = "DELETE FROM PLAYER WHERE ID = ?"
         jdbcTemplate.update(sql, id)
     }
+
+    fun createTournamentTable(){
+        val sql = "CREATE TABLE TOURNAMENT (ID INTEGER, NAME VARCHAR(50), LOCATION VARCHAR(50), PRIMARY KEY(ID))"
+        jdbcTemplate.execute(sql)
+        println("table created")
+    }
 }

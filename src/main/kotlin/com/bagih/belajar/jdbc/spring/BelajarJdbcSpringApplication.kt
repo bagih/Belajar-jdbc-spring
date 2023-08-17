@@ -48,6 +48,7 @@ class BelajarJdbcSpringApplication(
         logger.info("players after insert: ${playerDao.getAllPlayers()}")
         playerDao.updatePlayer(Player(3, "jimbur", "jabon", Date(System.currentTimeMillis()), 21))
 		playerDao.deletePlayerById(1)
+		playerDao.createTournamentTable()
     }
 }
 
